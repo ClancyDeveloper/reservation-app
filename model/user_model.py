@@ -1,13 +1,12 @@
-from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy import String, Integer, Column
+from .Base import Base
 
-class DataBase(DeclarativeBase):
-    pass
-
-class User(DataBase):
+class User(Base):
     __tablename__ = "user"
 
-    id = DataBase.Column(DataBase.Integer, primary_key=True, autoincrement=True)
-    username = DataBase.Column(DataBase.String(120), nullable=False)
-    password = DataBase.Column(DataBase.Integer(50), nullable=False)
+    id = Column(Base.Integer, primary_key=True, autoincrement=True)
+
+    username = Column(String(120), nullable=False)
+    password = Column(Integer(50), nullable=False)
     
 

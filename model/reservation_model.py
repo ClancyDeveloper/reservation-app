@@ -1,17 +1,18 @@
-from sqlalchemy.orm import DeclarativeBase
-from datetime import timezone, datetime
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from datetime import datetime, timezone
+from .Base import Base
 
-class DataBase(DeclarativeBase):
-    pass
 
-class Reservation(DataBase):
-    __tablename__ = 'reservation'
+class Reservation(Base):
+    __tablename__ = "reservation"
 
-    id = DataBase.Column(DataBase.Integer, primary_key=True, autoincrement=True)
-    name = DataBase.Column(DataBase.String(100), nullable=False)
-    reserved_at = DataBase.Column(DataBase.DateTime, nullable=False)
-    expires_at = DataBase.Column(DataBase.DateTime, nullable=False)
-    created_at = DataBase.Column(DataBase.DateTime, default=datetime.now(timezone.utc), nullable=False)
-    description = DataBase.Column(DataBase.String(300), nullable=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(100), nullable=False)
 
-    client_id = DataBase.Column(DataBase.Integer, DataBase.ForeingKey('client.id'), nullable=False)
+    reserved_at = Column(DateTime, nullable=False)
+    expires_at = Column(DateTime, nullable=False)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
+    
+    description = Column(String(300), nullable=True)
+
+    client_id = Column(Integer, ForeignKey("client.id"), nullable=False)
