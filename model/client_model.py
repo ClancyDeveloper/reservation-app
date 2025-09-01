@@ -4,7 +4,7 @@ from .Base import Base
 
 
 class Client(Base):
-    __tablename__ = "client"
+    __tablename__ = "clients"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(120), nullable=False)
@@ -16,4 +16,4 @@ class Client(Base):
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
     deleted_at = Column(DateTime, nullable=True)
 
-    user_id = Column(Integer, ForeignKey("user.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)

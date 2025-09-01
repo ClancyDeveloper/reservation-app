@@ -4,7 +4,7 @@ from .Base import Base
 
 
 class Reservation(Base):
-    __tablename__ = "reservation"
+    __tablename__ = "reservations"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(100), nullable=False)
@@ -15,4 +15,4 @@ class Reservation(Base):
     
     description = Column(String(300), nullable=True)
 
-    client_id = Column(Integer, ForeignKey("client.id"), nullable=False)
+    client_id = Column(Integer, ForeignKey("clients.id"), nullable=False)
