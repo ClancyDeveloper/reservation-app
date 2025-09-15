@@ -12,7 +12,6 @@ texto = QLabel('Texto muito foda', window)
 texto.setGeometry(10,10,100,30)
 
 imagem = QImage("assets/image.png")
-window.setIma
 
 icon = QIcon("assets/image.png")
 window.setWindowIcon(icon)
