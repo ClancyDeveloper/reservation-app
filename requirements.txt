@@ -1,0 +1,6 @@
+flask
+flask_cors
+os
+PyQt6
+dotenv
+sqlalchemy
