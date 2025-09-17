@@ -1,6 +1,6 @@
 from flask import jsonify, Blueprint, request
 
-from controllers.user.register_user_controller import register_user_controller
+from ...controllers.user.register_user_controller import register_user_controller
 
 register_user_blueprint = Blueprint("register_user_blueprint", __name__)
 

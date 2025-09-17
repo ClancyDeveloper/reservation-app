@@ -4,3 +4,4 @@ os
 PyQt6
 dotenv
 sqlalchemy
+flask_sqlalchemy
