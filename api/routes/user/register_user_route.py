@@ -9,7 +9,7 @@ def register_user():
 
     data = request.json
 
-    register_user_controller(data)
+    error = register_user_controller(data)
 
     if error:
         return jsonify({
