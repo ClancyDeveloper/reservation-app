@@ -1,9 +1,9 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from datetime import datetime, timezone
-from .Base import Base
+from api.database import db
 
 
-class Reservation(Base):
+class Reservation(db.Model):
     __tablename__ = "reservations"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
