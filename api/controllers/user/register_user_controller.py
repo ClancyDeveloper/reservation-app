@@ -10,4 +10,3 @@ def register_user_controller(data):
     db.session.add(new_user)
     db.session.commit()
 
-    return new_user
