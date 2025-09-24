@@ -1,21 +1,39 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QWidget, QLabel
-from PyQt6.QtGui import QIcon, QFont, QImage
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
+from PyQt5.QtCore import Qt
 
-app = QApplication(sys.argv)
+API_URL = "http://127.0.0.1:5000"
 
-window = QWidget()
-window.setWindowTitle("Teste")
-window.setGeometry(100,100,400,300)
+class LoginWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Login")
+        self.setGeometry(100, 100, 300, 150)
 
-texto = QLabel('Texto muito foda', window)
-texto.setGeometry(10,10,100,30)
+        layout = QVBoxLayout()
 
-imagem = QImage("assets/image.png")
+        self.username_input = QLineEdit(self)
+        self.username_input.setPlaceholderText("Usuário")
+        layout.addWidget(QLabel("Nome de usuário:"))
+        layout.addWidget(self.username_input)
+        self.username_input.setGeometry(525, 300, 200, 20)
 
-icon = QIcon("assets/image.png")
-window.setWindowIcon(icon)
+        self.password_input = QLineEdit(self)
+        self.password_input.setPlaceholderText("Senha")
+        layout.addWidget(QLabel("Senha:"))
+        layout.addWidget(self.password_input)
+        self.password_input.setGeometry(525, 330, 200, 20)
 
-window.show()
+        self.login_text = QLabel("Login")
+        self.login_text.setAlignment(Qt.AlignCenter)
+        layout.addWidget(self.login_text)
 
-sys.exit(app.exec())
+
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = LoginWindow()
+    window.showMaximized()
+    sys.exit(app.exec_())
+        
