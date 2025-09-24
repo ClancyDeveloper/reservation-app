@@ -4,7 +4,7 @@ from ...controllers.user.register_user_controller import register_user_controlle
 
 register_user_blueprint = Blueprint("register_user_blueprint", __name__)
 
-@register_user_blueprint.route("/user", methods=["POST"])
+@register_user_blueprint.route("/user/register", methods=["POST"])
 def register_user():
 
     data = request.json
