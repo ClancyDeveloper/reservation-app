@@ -4,8 +4,14 @@ from flask_cors import CORS
 from api.database import db
 import os
 
+# users routes
 from .routes.user.register_user_route import register_user_blueprint
+from .routes.user.get_all_users_route import get_all_users_blueprint
+from .routes.user.login_user_route import login_user_blueprint
+
 from .routes.slash_route import slash_route_blueprint
+
+
 
 load_dotenv()
 
@@ -18,6 +24,8 @@ db.init_app(app)
 
 app.register_blueprint(register_user_blueprint)
 app.register_blueprint(slash_route_blueprint)
+app.register_blueprint(get_all_users_blueprint)
+app.register_blueprint(login_user_blueprint)
 
 CORS(app, origins='*')
 
