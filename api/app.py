@@ -11,8 +11,6 @@ from .routes.user.login_user_route import login_user_blueprint
 
 from .routes.slash_route import slash_route_blueprint
 
-
-
 load_dotenv()
 
 app = Flask(__name__)
@@ -28,7 +26,6 @@ app.register_blueprint(get_all_users_blueprint)
 app.register_blueprint(login_user_blueprint)
 
 CORS(app, origins='*')
-
 
 if __name__ == "__main__":   
     app.run(debug=True)
