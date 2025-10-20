@@ -27,5 +27,3 @@ def register_user():
     register_user_controller(new_user)
 
     return jsonify({"message": "User registered successfully"}), 201
-
-    
