@@ -11,7 +11,7 @@ def register_user():
 
     data = request.json
 
-    new_user = {
+    user = {
         "username": data.get("username"),
         "password": data.get("password")
         }
@@ -20,10 +20,10 @@ def register_user():
     if valideate_fields_error:
         return jsonify({"error": valideate_fields_error}), 400
 
-    validate_username_error = valid_username(new_user)
+    validate_username_error = valid_username(user)
     if validate_username_error:
         return jsonify({"error": validate_username_error}), 400
 
-    register_user_controller(new_user)
+    register_user_controller(user)
 
     return jsonify({"message": "User registered successfully"}), 201
